@@ -52,3 +52,50 @@ longestWord("have a nice day"); // -> 'nice'
 
 //n=length of sentence
 
+//isPrime
+/*Write func isPrime that takes in a number and returns true if the num is prime. A prime num is only divisible by 1 and itself. Assume num is a positive integer.
+*/
+
+const isPrime = (n) => {
+  // Composite number is divisible by number up to its sqrt. if n is not divisible by more than 2 distinct numbers (1 & itself), it is prime
+  const maxDiv = Math.sqrt(n)
+  
+  if(n < 2) {
+    return false
+  }
+
+  for(let i = 2; i <= maxDiv; i+= 1){
+    if(n % i === 0) {
+      return false
+    }
+  }
+  return true
+}
+
+// time = O(sqrt(n))
+// space = O(1)
+
+isPrime(2); // -> true
+isPrime(2017); // -> true
+
+
+module.exports = {
+  isPrime,
+};
+
+//structy soln
+const isPrime = (n) => {
+  if(n < 2) {
+    return false
+  }
+  
+  for(let i = 2; i < n; i += 1) {
+    if(n % i === 0) {
+      return false
+    }
+  } 
+  return true
+};
+time = O(n)
+space = O(1)
+
