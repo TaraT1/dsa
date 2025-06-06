@@ -99,3 +99,73 @@ const isPrime = (n) => {
 time = O(n)
 space = O(1)
 
+//fizzbuzz
+const fizzBuzz = (n) => {//not work - needed result.push()
+  let result = []
+
+  for(let i = 1; i <= n; i++ ) {
+    if(i % 3 === 0 && i % 5 === 0) {
+      result = "fizzbuzz"
+    }
+    else if(i % 3 === 0) {
+      result = "fizz"
+    }
+    else if( i % 5 === 0) {
+      result = "buzz"
+    }
+    else result = i
+  } 
+  return result
+};
+
+module.exports = {
+  fizzBuzz,
+};
+
+const fizzBuzz = (n) => {
+  let result = []
+
+  for(let i = 1; i <= n; i++ ) {
+    if(i % 3 === 0 && i % 5 === 0) {
+      result.push("fizzbuzz")
+    }
+    else if(i % 3 === 0) {
+      result.push("fizz")
+    }
+    else if( i % 5 === 0) {
+      result.push("buzz")
+    }
+    else result.push(i)
+  } 
+  return result
+};
+
+module.exports = {
+  fizzBuzz,
+};
+
+//time: O(n)
+//space: O(n)
+
+//pairs
+//p: array; returns arr of unique pairs - any order.
+//pairs(["a", "b", "c"]); // ->
+// [
+//    ["a", "b"],
+//    ["a", "c"],
+//    ["b", "c"]
+// ]
+
+const pairs = (elements) => {
+  let result = []
+  for(let i = 0; i < elements.length; i+=1) {
+    for(let j = i+1; j < elements.length; j+=1) {
+      result.push([ elements[i], elements[j] ])
+    }
+  } 
+    return result
+} 
+  
+
+//time: O(n * n/2) --> O(n^2)
+//space: O(n^2)
