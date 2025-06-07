@@ -181,14 +181,14 @@ const anagrams = (s1, s2) => {
 
     for(let char of s1) {
         if(!(char in count)) {
-            count[char] += 1
-        
-        }
+           count[char]  = 0
+        } 
+        count[char] += 1
     }
-    //js: Can't use equality in js for objects. Checks for referencing same memory, not contents of object. So iterate and reduce for s2
+    //js: Can't use equality in js for objects. Checks for referencing same memory location, not contents of object. So iterate and reduce for s2
     for(let char of s2) {
         if(char in count) {
-        count[char] -= 1 //decrementing char of s2
+        count[char] -= 1 //decrementing char of s2 in s1's count
         } else {
         return false //if not decrement, char in s2 doesn't exist in s1
         }
@@ -209,3 +209,29 @@ anagrams('restful', 'fluster')
 //time: O(n+m) //linear (multi-linear)
 //space: ~O(n+m) //linear (multi-linear)
 
+const anagrams2 = (s1, s2) => {
+    const cnt = {} //could it be map?
+
+    for(let char of s1) {
+        if(!(char in cnt)) { //if character is not in count, add
+            cnt[char] = 0
+        } 
+        cnt[char] += 1
+    }
+
+    for(let char of s2) {
+        if(char in cnt) {
+            cnt[char] =- 1
+        } else {
+            return false
+        }
+    }
+
+    for(let char in cnt) {
+        if(cnt[char] !== 0) {
+            return false
+        }
+    }
+
+    return true
+}
