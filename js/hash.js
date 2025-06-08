@@ -100,17 +100,18 @@ You can assume that the input string is non-empty.
 //mostFreq - max value logic
 
 const mostFreqentChar = (s) => {
+    //create count object
     const count = {}
-    
     for(let x of s ) {
         if(!(char in count)) {
             count[char] = 0
         }
         count[char] += 1
     }
+    //determine earliest tie
     let most = null
-    for(x of s) {
-        if(most === null || count[char] > count[most]) {
+    for(let x of s) {
+        if(most === null || count[char] > count[most]) {//what if want last tie
             most = char
         }
     }
@@ -120,3 +121,42 @@ const mostFreqentChar = (s) => {
 // mostFrequentChar('potato'); // -> 'o'
 // mostFrequentChar('eleventennine'); // -> 'e'
 // n = str length; time: O(n); space: O(n)
+
+//pair sum
+// takes in arr & target sum; return arr of pair of unique indices;   
+//brute force with nested loops
+const pairSum = (numbers, targetSum) => { 
+  for(let i = 0; i < numbers.length; i++) {
+    for(let j = i + 1; j < numbers.length; j++) {
+      if(numbers[i] + numbers[j] === targetSum) {
+        return [i,j]
+      }
+    }
+  }
+};
+//Examples: pairSum([6, 4, 2, 8 ], 12); // -> [1, 3]
+/**
+const numbers = [];
+for (let i = 0; i <= 30000; i += 1) {
+  numbers.push(i);
+}
+pairSum(numbers, 59999); // -> [ 29999, 30000 ] 
+*/
+
+//time: O(n^2); space: O(n)
+
+//pairSum with hashing ???
+const pairSum = (numbers, targetSum) => {
+    const prevNums = {}
+
+    for(let i = 0; i < numbers.length; i += 1) {
+        const num = numbers[i]
+        const complement = targetSum - num
+
+        //is complement in object prevNums
+        if(complement in prevNums) {
+            return [i, prevNums[complement]]
+        }
+        prevNums[num] = i
+    }
+}
