@@ -165,7 +165,47 @@ const pairs = (elements) => {
   } 
     return result
 } 
-  
 
 //time: O(n * n/2) --> O(n^2)
 //space: O(n^2)
+
+//anagrams
+//parameter: 2 strings, return bool if strings are anagrams
+//anagrams('restful', 'fluster'); // -> true
+//anagrams('abbcd', 'caddb') // -> false
+//code: equal lengths, [i].includes(s2)
+//count for each character
+//hash map for each string
+const anagrams = (s1, s2) => {
+    const count = {}
+
+    for(let char of s1) {
+        if(!(char in count)) {
+            count[char] += 1
+        
+        }
+    }
+    //js: Can't use equality in js for objects. Checks for referencing same memory, not contents of object. So iterate and reduce for s2
+    for(let char of s2) {
+        if(char in count) {
+        count[char] -= 1 //decrementing char of s2
+        } else {
+        return false //if not decrement, char in s2 doesn't exist in s1
+        }
+    }
+    for(let char in count) { //for...in: keys
+        if (count[char] !== 0) {
+            return false
+        }
+    }
+
+    return true
+}
+anagrams('restful', 'fluster')
+
+//Complexity
+//n=string1 length
+//m = string2 length
+//time: O(n+m) //linear (multi-linear)
+//space: ~O(n+m) //linear (multi-linear)
+

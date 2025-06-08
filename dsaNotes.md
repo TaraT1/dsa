@@ -28,3 +28,7 @@
 - better
 
     - O(2^n + n^10) ---> O(2^n) - exponential is worse than polynomial
+
+## Hashing
+js: object; python: dictionary
+- O(n^2) --> O(n)
