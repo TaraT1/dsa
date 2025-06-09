@@ -129,7 +129,7 @@ const pairSum = (numbers, targetSum) => {
   for(let i = 0; i < numbers.length; i++) {
     for(let j = i + 1; j < numbers.length; j++) {
       if(numbers[i] + numbers[j] === targetSum) {
-        return [i,j]
+        return [i,j] //return indices
       }
     }
   }
@@ -155,8 +155,79 @@ const pairSum = (numbers, targetSum) => {
 
         //is complement in object prevNums
         if(complement in prevNums) {
-            return [i, prevNums[complement]]
+            return [i, prevNums[complement]] //key: element of arr; val: index
         }
         prevNums[num] = i
     }
 }
+//time: O(n); space: O(n)
+
+//pair product
+//parameter: arr of numbers & target product; return unique indices whose elements multiply to given target. 
+/**
+ * pairProduct([3, 2, 5, 4, 1], 8); // -> [1, 3]
+ * pairProduct([4, 6, 8, 2], 16); // -> [2, 3]
+ */
+
+//brute force: nest loops i, j = i+1; if numbers[i] * numbers[j] ==== target prod, return [i,j]
+const pairProduct = (numbers, targetProduct) => {
+  for(let i = 0; i < numbers.length; i += 1) {
+    for(let j = i + 1; j < numbers.length; j+= 1) {
+      if(numbers[i] * numbers[j] === targetProduct) {
+        return [i,j]
+      }
+    }
+  }
+}
+//time: O(n^2); space: O(1)
+
+//hash
+const pairProductHash = (numbers, targetProduct) => {
+    const prevNums = {}
+    for(let i = 0; i < numbers.length; i += 1) {
+        const num = numbers[i]
+        const complement = targetProduct / num
+
+        if(complement in prevNums) {
+            return [i, prevNums[complement]]        
+        }
+        prevNums[num] = i //constructs hash map - key: element, val: index
+    }
+}
+
+//time: 0(n); space: O(n) (insert and lookup are constant time in hash map)
+
+//intersection
+//parameter: 2 arrays; return new array with elements in both arrays
+//intersection([4, 2, 1, 6], [3, 6, 9, 2, 10]); // -> [2, 6]
+
+// brute: nested loops
+ const intersection = (a, b) => {
+  // todo
+  const result = []
+  for(let x of a) {
+    if(b.includes(x)) {
+      result.push(x)
+    }
+  }
+  return result
+};
+
+const intersection = (a, b) => {
+  const result = []
+  
+  const items = new Set
+  
+  for(let item of a) {
+     items.add(item) 
+    }
+  
+  for(let ele of b) {
+    if(items.has(ele)){
+      result.push(ele)
+    }
+  }
+
+ return result
+};
+
