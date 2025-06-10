@@ -29,6 +29,7 @@ const pairs = (elements) => {
 //code: equal lengths, [i].includes(s2)
 //count for each character
 //hash map for each string
+
 const anagrams = (s1, s2) => {
     const count = {}
 
@@ -38,7 +39,7 @@ const anagrams = (s1, s2) => {
         } 
         count[char] += 1
     }
-    //js: Can't use equality in js for objects. Checks for referencing same memory location, not contents of object. So iterate and reduce for s2
+    //js: Can't use equality in js for objects. Checks for referencing same memory location, not contents of object. So iterate and decrement for s2
     for(let char of s2) {
         if(char in count) {
         count[char] -= 1 //decrementing char of s2 in s1's count
@@ -59,7 +60,7 @@ anagrams('restful', 'fluster')
 //Complexity
 //n=string1 length
 //m = string2 length
-//time: O(n+m) //linear (multi-linear)
+//time: O(n+m+n) -->O(n) //linear (multi-linear)
 //space: ~O(n+m) //linear (multi-linear)
 
 const anagrams2 = (s1, s2) => {

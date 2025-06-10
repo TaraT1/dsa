@@ -31,11 +31,25 @@
 
 ## Hashing
 - technique used for storing and retrieviing data as fast as possible; allows fast insertion, deletion, searching, &c; avg cases operations can be performed in O(1); worse case: O(n)
-- js: object; python: dictionary
-- O(n^2) --> O(n)
+- In js, object (hash set & hash map). In python, dictionary
+    - set commands/syntax
+    - object commands/syntax
+        - e.g. Can't compare equality of objects with js.  In js, that means checking same memory location and not if they're the same keys & vals.
+- O(n^2) --> O(n) or O(1)
 - https://www.geeksforgeeks.org/javascript/hashing-in-javascript/
+- implementing hash tables with object and map classes [fcc](https://www.freecodecamp.org/news/javascript-hash-table-associative-array-hashing-in-js/)
+    - Object data type can pair object's property value with a property key
+        - has properties added by the object class, where inheritance conflicts may arise.
+        - size of the hash table is not tracked
+    - Map requires use of set() and get() to define and retrieve key-pair values; can't overwrite inherited properties
 
 ### Hash Table 
 - data structure that stores key-value pairs
 - basic operations include insert, get, search, delete
 
+## Recursion
+- iteratave - when a function that loops
+- recursive - function that calls itself
+- anatomy: 
+    - base case - stop condition (otherwise runaway recursion)
+    - recursive step - keeps recursion going
