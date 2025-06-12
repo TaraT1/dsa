@@ -47,9 +47,26 @@
 - data structure that stores key-value pairs
 - basic operations include insert, get, search, delete
 
+### Create Hash Table
+- create hash table class with table & size initial properties
+- add hash() to transform keys into indices
+- add set() and get() methods
+
 ## Recursion
-- iteratave - when a function that loops
+- iterative - when a function that loops
 - recursive - function that calls itself
 - anatomy: 
     - base case - stop condition (otherwise runaway recursion)
     - recursive step - keeps recursion going
+```javascript
+const countdown = (n) => {
+  if(n === 0) {
+    return;
+  }
+  console.log('entering', n)
+  countdown(n - 1)
+  console.log('returning from', n)
+}
+
+countdown(5)
+```
