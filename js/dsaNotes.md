@@ -70,3 +70,27 @@ const countdown = (n) => {
 
 countdown(5)
 ```
+## Linked List
+```javascript
+class Node {
+    constructort(val){
+    this.val = val
+    this.next = null
+    }
+}
+
+a.next = b
+b.next = c
+c.next = d
+
+// a -> b --> c --> d --> null
+
+const printLnkedList = (head) => {
+    let current = head
+    while(current !== null) {
+        console.log(current.val)
+        current = current.next
+    }
+}
+printLinkedList(a)
+```
