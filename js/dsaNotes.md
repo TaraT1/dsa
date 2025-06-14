@@ -71,6 +71,21 @@ const countdown = (n) => {
 countdown(5)
 ```
 ## Linked List
+- ordered data structure where nodes are linked together
+- head: first node
+- tail: last node; last node points to null
+
+### type of linked lists
+- singly linked list - each node contains one pointer to the next node
+- doubly linnked list - each node contains two pointers - a pointer to the previous node and a pointer to the next node
+- circular linked list - last node points to the first node or any other node before it forming a loop
+
+### methods
+- size() - returns number of nodes 
+- clear() - empties the list
+- getLast() - returns last node
+- getFirst() - returns the head
+
 ```javascript
 class Node {
     constructort(val){
