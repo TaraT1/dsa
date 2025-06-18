@@ -178,3 +178,28 @@ const reverseList = (head, prev = null) => {
     return reverseList(next, head)
 }
 //O(n) time; O(n) space
+
+//zipperLists
+//Given 2 linked lists, return alternating nodes into single linked list. If length is longer in one, tack it on. Return head of zippered linked list; 
+/**Ex
+ * const a = new Node("a");
+const b = new Node("b");
+const c = new Node("c");
+a.next = b;
+b.next = c;
+// a -> b -> c
+
+const x = new Node("x");
+const y = new Node("y");
+const z = new Node("z");
+x.next = y;
+y.next = z;
+// x -> y -> z
+
+zipperLists(a, x);
+// a -> x -> b -> y -> c -> z
+ */
+
+const zipperLists = (head1, head2) => {
+    
+}
