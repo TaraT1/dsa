@@ -93,3 +93,88 @@ const sumList = (head) => {
     return head.val + sumList(head.next)
 }
 //O(n) time; O(n) space
+
+//Linked list find
+//function takes in head of linked list and a target value. Returns boolean indicating whether target value is contained in linked list
+
+//iterative
+const findValue = (head, target) => {
+    let current = head
+    while(current !== null) {
+        if(current.val === target ) {
+            return true
+        } 
+        current = current.next
+    } return false 
+}
+//O(n) time; O(1) space
+
+//recursive
+const findValue = (head, target) => {
+    if(head === null) return false
+    if(head.val === target) return true
+    return findValue(head.next, target)
+}
+// O(n) time; O(n) space
+
+//get node value
+// function takes in head of linked list and index. Return value of lined list at specified index. Return nulll if no node at given index
+
+//iterative
+const getNodeValue = (head, index) => {
+    let current = head
+    let count = 0
+    while(current !== null) {
+        if(count === index){
+            return current.val
+        }
+        count += 1
+        current = current.next
+    }
+    return null //if index exceeds node 
+}
+//O(n) time; O(1) space
+
+//recursive
+const getNodeValue = (head, index) => {
+  if(head === null) return null
+  if(index === 0) return head.val
+  getNodeValue(head.next, index - 1) //backwards count
+};
+//O(n) time; O(n) space
+
+// reverse list - p: head of linked list; r: reverse order of nodes in linked list in-place and return new head
+// const x = new Node("x");
+// const y = new Node("y");
+
+// x.next = y;
+
+// // x -> y
+
+// reverseList(x); // y -> x
+//iterative
+const reverseList = (head) => {
+    let current = head
+    let prev = null
+    
+    while(current !== null) {
+        const next = current.next
+        prev = current
+        current = next
+        
+    } return prev //contains new head of linked list
+}
+//N <--  a  -->   b  -->    c
+//prev  current  next
+
+//O(n) time; O(1) space
+
+//recursive
+const reverseList = (head, prev = null) => {
+    if(head === null) return prev
+
+    const next = head.next
+    head.next = prev
+    return reverseList(next, head)
+}
+//O(n) time; O(n) space
