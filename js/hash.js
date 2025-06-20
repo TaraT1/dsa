@@ -63,32 +63,6 @@ anagrams('restful', 'fluster')
 //time: O(n+m+n) -->O(n) //linear (multi-linear)
 //space: ~O(n+m) //linear (multi-linear)
 
-const anagrams2 = (s1, s2) => {
-    const cnt = {} //could it be map?
-
-    for(let char of s1) {
-        if(!(char in cnt)) { //if character is not in count, add
-            cnt[char] = 0
-        } 
-        cnt[char] += 1
-    }
-
-    for(let char of s2) {
-        if(char in cnt) {
-            cnt[char] =- 1
-        } else {
-            return false
-        }
-    }
-
-    for(let char in cnt) {
-        if(cnt[char] !== 0) {
-            return false
-        }
-    }
-
-    return true
-}
 
 // most frequent char
 /**

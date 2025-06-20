@@ -46,6 +46,7 @@
 ### Hash Table 
 - data structure that stores key-value pairs
 - basic operations include insert, get, search, delete
+- reference https://www.squash.io/javascript-hashmap-a-complete-guide/
 
 ### Create Hash Table
 - create hash table class with table & size initial properties
